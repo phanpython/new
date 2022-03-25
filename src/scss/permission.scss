@@ -1,0 +1,14 @@
+.table-permission {
+    &__row {
+        input { 
+            cursor: pointer;
+        }
+
+        &:hover {
+            input {
+                background: #A9BCF5;
+                transition: background-color 1s ease;
+            }
+        }
+    }
+}

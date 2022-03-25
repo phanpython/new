@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/head.html',{
+	"title":"Главная"
+	})
+	<body>
+		<div class="wrap">
+		@@include('html/header.html',{})
+		<main class="content">
+			<div class="content__body _container">
+                <div class="navigation-chain">
+                    <div class="navigation-chain__item"><a href="permission.html">Разрешения / </a></div>
+                    <div class="navigation-chain__item navigation-chain__item_active">Добавление разрешения</div>
+                </div>
+				<div class="content__add-permission permission-add">
+                    <div class="permission-add__list">
+                        <div class="permission-add__item">
+                          <div class="permission-add__subtitle">
+                            Характер работ:
+                          </div>  
+                          <form method="post" class="permission-add__form">
+                            <input type="submit" class="input button button-content" value="Редактировать">
+                          </form>
+                          <div class="permission-add__success">
+                            <span class="icon-ckeck"></span>
+                          </div>
+                        </div>
+                        <div class="permission-add__item">
+                            <div class="permission-add__subtitle">
+                                Ответственные:
+                              </div>  
+                              <form method="post" class="permission-add__form">
+                                <input type="submit" class="input button button-content" value="Добавить">
+                              </form>
+                              <div class="permission-add__unsuccess">
+                                <span class="icon-clear"></span>
+                            </div>
+                        </div>
+                        <div class="permission-add__item">
+                            <div class="permission-add__subtitle">
+                                Маски:
+                              </div>  
+                              <form method="post" class="permission-add__form">
+                                <input type="submit" class="input button button-content" value="Добавить">
+                              </form>
+                              <div class="permission-add__unsuccess">
+                                <span class="icon-clear"></span>
+                            </div>
+                        </div>
+                        <div class="permission-add__item">
+                            <div class="permission-add__subtitle">
+                                Даты:
+                              </div>  
+                              <form method="post" class="permission-add__form">
+                                <input type="submit" class="input button button-content" value="Добавить">
+                              </form>
+                              <div class="permission-add__unsuccess">
+                                <span class="icon-clear"></span>
+                            </div>
+                        </div>
+                        <!-- <div class="permission-add__item">
+
+                        </div> -->
+                    </div>
+                </div>
+			</div>
+		</main>
+		@@include('html/footer.html',{})
+		</div>
+		<script src="js/app.min.js"></script>
+	</body>
+</html>

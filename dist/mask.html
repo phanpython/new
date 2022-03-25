@@ -9,102 +9,158 @@
 </head>
 	<body>
 		<div class="wrap">
-		
-		<main class="content">
-			<div class="section _container">
-				<div class="form">
-					<div class="form__text">ЦСПА</div>
-					
-					<table class="table-cspa form__table" id="tableID">
-						<tr class="form__title">
-							<th>Защита</th>
-							<th>Вход</th>
-							<th>Выход</th>
-							<th>Втор</th>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td><input class="form__vtor" type="checkbox" id="checkbox-id"><label for="checkbox-id" class="form__label"></label></td>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-						</tr>
-					</table>
-					<button id="buttonID" class="form__button">Добавить</button>
+			<header class="header">
+    <div class="header__body _container">
+        <img class="header__logo" src="img/logo.png" alt="">
+        <div class="header__icons">
+            <div class="header__icon">
+                <a href="permission.html" class="header__link">
+                    <span class="icon-user"></span>
+                    <span class="header__subtitle">
+                        Разрешения
+                    </span>
+                </a>
+            </div>
+            <div class="header__icon icon_reg_auth">
+                <span class="icon-user"></span>
+                <span class="header__subtitle">
+                    Войти
+                </span>
+            </div>
+        </div>
+    </div>
+</header>
+			<main class="content">
+				<div class="content__body _container">
+					<div class="form">
+						<div class="form__text">ЦСПА</div>
+						<form method="post" class="content__table table-content table-dates">
+							<div class="table-content__rows table-content__row_head">
+								<div class="table-content__col table-content__head" name="protection">Защита</div>
+								<div class="table-content__col table-content__head" name="entrance">Вход</div>
+								<div class="table-content__col table-content__head" name="exit">Выход</div>
+								<div class="table-content__col table-content__head" name="vtor">Втор</div>
+							</div>
+							<div class="table-content__rows">
+								<div class="table-content__col table-col col-first">
+									<input type="text" name="protection-1" class="table-col__input" value="Ячейка 1">
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="extrance-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="exit-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="checkbox" class="check-entrance__input" name="vtor-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+							</div>
+						</form>
+						<div class="content__func func-content sticky">
+							<div class="input button button-content button-add-row">
+								Добавить
+							</div>
+							<div class="input button button-content">
+								Сохранить
+							</div>
+						</div>
+					</div>
+					<div class="form">
+						<div class="form__text">СОУ</div>
+						<form method="post" class="content__table table-content table-dates">
+							<div class="table-content__rows table-content__row_head">
+								<div class="table-content__col table-content__head" name="protection">Защита</div>
+								<div class="table-content__col table-content__head" name="entrance">Вход</div>
+								<div class="table-content__col table-content__head" name="exit">Выход</div>
+								<div class="table-content__col table-content__head" name="vtor">Втор</div>
+							</div>
+							<div class="table-content__rows">
+								<div class="table-content__col table-col col-first">
+									<input type="text" name="protection-1" class="table-col__input" value="Ячейка 1">
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="extrance-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="exit-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="checkbox" class="check-entrance__input" name="vtor-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+							</div>
+						</form>
+						<div class="content__func func-content sticky">
+							<div class="input button button-content button-add-row">
+								Добавить
+							</div>
+							<div class="input button button-content">
+								Сохранить
+							</div>
+						</div>
+					</div>
+					<div class="form">
+						<div class="form__text">МПСА</div>
+						<form method="post" class="content__table table-content table-dates">
+							<div class="table-content__rows table-content__row_head">
+								<div class="table-content__col table-content__head" name="protection">Защита</div>
+								<div class="table-content__col table-content__head" name="entrance">Вход</div>
+								<div class="table-content__col table-content__head" name="exit">Выход</div>
+								<div class="table-content__col table-content__head" name="vtor">Втор</div>
+							</div>
+							<div class="table-content__rows">
+								<div class="table-content__col table-col col-first">
+									<input type="text" name="protection-1" class="table-col__input" value="Ячейка 1">
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="extrance-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="exit-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="checkbox" class="check-entrance__input" name="vtor-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+							</div>
+						</form>
+						<div class="content__func func-content sticky">
+							<div class="input button button-content button-add-row">
+								Добавить
+							</div>
+							<div class="input button button-content">
+								Сохранить
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="form">
-					<div class="form__text">СОУ</div>
-					<table class="table-sou form__table" >
-						<tr>
-							<th>ЛУ</th>
-							<th>Защита</th>
-							<th>ячейка</th>
-							<th>ячейка</th>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-						</tr>
-					</table>
-				</div>
-				<div class="form">
-					<div class="form__text">МПСА</div>
-					<table class="table-mpsa form__table">
-						<tr>
-							<th>НПС</th>
-							<th>Защита</th>
-							<th>ячейка</th>
-							<th>ячейка</th>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-						</tr>
-						<tr>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-							<td>ячейка</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			
-		</main>
-		<footer class="footer">
+			</main>
+			<footer class="footer">
     <div class="footer__body _container">
         <address class="footer__mail">admin@gmail.com</address>
         <div class="footer__copy">&copy; ПАО "Транснефть" 2022</div>
@@ -120,32 +176,6 @@
     </div>
 </footer>
 		</div>
-		<script>
-			// let table = document.getElementById('tableID');
-
-			// let buttons = document.getElementById('buttonID');
-
-			// buttons.onclick = function(){
-			// 	addRow();
-			// }
-			// function addRow() {
-			// 	let row = document.createElement('tr');
-			// 	let col1 = document.createElement('td');
-			// 	table.appendChild(row);
-			// 	row.appendChild(col1);
-			// 	col1.innerHTML = 'Column1';
-			// 	let col2 = document.createElement('td');
-			// 	row.appendChild(col2);
-			// 	col2.innerHTML = 'Column2';
-			// 	let col3 = document.createElement('td');
-			// 	row.appendChild(col3);
-			// 	col3.innerHTML = 'Column3';
-			// 	let col4 = document.createElement('td');
-			// 	row.appendChild(col4);
-			// 	col4.innerHTML = 'Column4';
-			// 	console.log('123');
-			// }
-		</script>
 		<script src="js/app.min.js"></script>
 	</body>	
 </html>

@@ -1,0 +1,38 @@
+.typical-work {
+    width: 40%;
+
+   &__name {
+       font-size: 18px;
+       display: inline-block;
+       width: 400px;
+       margin: 0 0 20px 0;
+       cursor: pointer;
+   }
+
+   &__checkbox {
+       cursor: pointer;
+   }
+}
+
+.type-work-button {
+    width: 400px;
+    padding: 40px 0;
+    margin: 0 auto;
+}
+
+.type-work-title {
+    font-size: 22px;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.atypical-work {
+    position: sticky;
+    top: 20px;
+    width: 40%;
+    height: 100%;
+
+    &__textarea {
+        resize: vertical;
+    }
+}

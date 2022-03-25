@@ -1,0 +1,52 @@
+.permission-add {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 0;
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 40px 0;
+    }
+
+    &__subtitle {
+        width: 30%;
+        line-height: 130%;
+    }
+
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0 0 0;
+        width: 60%;
+    }
+
+    &__unsuccess {        
+        span {
+            color: red;
+        }
+    }
+
+    &__success,
+    &__unsuccess{
+        width: 10%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__success {
+        span {
+            font-size: 23px;
+            color: green;
+        }
+    }
+}
+
