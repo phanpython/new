@@ -1,0 +1,59 @@
+.footer {
+    background: #fff;
+
+    &__body {
+        padding: 40px 15px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: 770px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+        }
+    }
+
+    &__mail {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        
+        @media (max-width: 770px) {
+            order: 2;
+            margin: 0 0 20px 0;
+        }
+    }
+
+    
+    &__copy {
+        text-align: center;
+        font-size: 17px;
+        font-weight: 600;
+
+        @media (max-width: 770px) {
+            order: 3;
+        }
+    }
+
+    &__links {
+        display: flex;
+        justify-content: flex-end;
+
+        
+        @media (max-width: 770px) {
+            order: 1;
+            margin: 0 0 20px 0;
+        }
+    }
+
+    &__link {
+        font-size: 20px;
+        margin: 0 15px 0 0;
+        
+        &:nth-last-child(1) {
+            margin: 0;
+        }
+    }
+}
