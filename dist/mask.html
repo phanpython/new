@@ -43,33 +43,34 @@
 							</div>
 							<div class="table-content__rows">
 								<div class="table-content__col table-col col-first">
-									<input type="text" name="protection-1" class="table-col__input" value="Ячейка 1">
+									<input type="text" name="protection-1" class="table-col__input protection" value="Ячейка 1" required="required">
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="extrance-1">
+										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="exit-1">
+										<input type="radio" class="check-entrance__input exit" name="entrance_exit-1" value="exit-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="checkbox" class="check-entrance__input" name="vtor-1">
+										<input type="checkbox" class="check-entrance__input vtor" name="vtor-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 							</div>
+							<input type="submit" class="submit-save-protections" hidden>
 						</form>
 						<div class="content__func func-content sticky">
 							<div class="input button button-content button-add-row">
 								Добавить
 							</div>
-							<div class="input button button-content">
+							<div class="input button button-content save-protection">
 								Сохранить
 							</div>
 						</div>
@@ -85,27 +86,28 @@
 							</div>
 							<div class="table-content__rows">
 								<div class="table-content__col table-col col-first">
-									<input type="text" name="protection-1" class="table-col__input" value="Ячейка 1">
+									<input type="text" name="protection-1" class="table-col__input protection" value="Ячейка 1" required="required">
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="extrance-1">
+										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="exit-1">
+										<input type="radio" class="check-entrance__input exit" name="entrance_exit-1" value="exit-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="checkbox" class="check-entrance__input" name="vtor-1">
+										<input type="checkbox" class="check-entrance__input vtor" name="vtor-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 							</div>
+							<input type="submit" class="" hidden>
 						</form>
 						<div class="content__func func-content sticky">
 							<div class="input button button-content button-add-row">
@@ -127,27 +129,28 @@
 							</div>
 							<div class="table-content__rows">
 								<div class="table-content__col table-col col-first">
-									<input type="text" name="protection-1" class="table-col__input" value="Ячейка 1">
+									<input type="text" name="protection-1" class="table-col__input protection" value="Ячейка 1" required="required">
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="extrance-1">
+										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input" name="entrance_exit-1" value="exit-1">
+										<input type="radio" class="check-entrance__input exit" name="entrance_exit-1" value="exit-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="checkbox" class="check-entrance__input" name="vtor-1">
+										<input type="checkbox" class="check-entrance__input vtor" name="vtor-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 							</div>
+							<input type="submit" class="" hidden>
 						</form>
 						<div class="content__func func-content sticky">
 							<div class="input button button-content button-add-row">
@@ -156,6 +159,10 @@
 							<div class="input button button-content">
 								Сохранить
 							</div>
+							<form action="" method="post">
+								<input type="submit" class="input button button-content button-del-row" value="Удаление">
+								<input type="text" class="row-id-process" hidden name="id" id="">
+							</form>
 						</div>
 					</div>
 				</div>

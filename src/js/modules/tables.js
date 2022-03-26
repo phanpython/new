@@ -276,4 +276,35 @@ function setMaskTime() {
 }
 }
 
+/*----------------------------------------------------------------------*/
+
+let saveButtonProtection = document.querySelector('.save-protection');
+console.log('123');
+let submitSaveProtection = document.querySelector('.submit-save-protections');
+
+
+if(saveButtonProtection){
+    saveButtonProtection.addEventListener('click', () => {
+        let protections = document.querySelectorAll('.protection');
+        let entrances = document.querySelectorAll('.entrance');
+        let exits = document.querySelectorAll('.exit');
+        let vtors = document.querySelectorAll('.vtor');
+
+        if(checkEmptyProtection(protections) ) {
+            submitSaveProtection.click();
+        }
+    });
+}
+function checkEmptyProtection(protections){
+    let flag = false;
+
+    protections.forEach((e,i) => {
+        if(!(timesFrom[i].value)){
+            console.log('Пусто');
+        }
+        else(
+            console.log(timesFrom[i].value)
+        )
+    });    
+}
 
