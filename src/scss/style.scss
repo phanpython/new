@@ -489,6 +489,7 @@ body {
             padding: 10px 0;
             text-align: center;
             width: 100%;
+			height: 100%;
             outline: none;
             border: 1px solid $mainColor;
         }
@@ -509,6 +510,7 @@ body {
             padding: 10px 0;
             background: $mainColor;
             color: #fff;
+			align-items: center;
         }
 
         &_active {
@@ -520,11 +522,13 @@ body {
 	&__rows {
         display: flex;
         justify-content: space-between;
+		height: 50px;
 		
         &_head {
             padding: 10px 0;
             background: $mainColor;
             color: #fff;
+
         }
 
         &_active {
@@ -542,6 +546,7 @@ body {
 	font-size: 16px;
 	margin: 0 auto;
 }
+/*-------------------------------------------------------------------------------------------*/
 
 .check-entrance {
 	display: flex;
@@ -620,6 +625,17 @@ body {
 		font-size: 18px;
 	}
 }
+
+.save-form{
+	display: flex;
+	justify-content: center;
+}
+
+
+.table-systems {
+    width: 75%;
+}
+
 @import "base/null";
 @import "select_box";
 @import "permission";

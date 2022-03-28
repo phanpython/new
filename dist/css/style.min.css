@@ -1381,6 +1381,7 @@ body span {
   padding: 10px 0;
   text-align: center;
   width: 100%;
+  height: 100%;
   outline: none;
   border: 1px solid #00599b;
 }
@@ -1396,6 +1397,7 @@ body span {
   padding: 10px 0;
   background: #00599b;
   color: #fff;
+  align-items: center;
 }
 .table-content__row_active input {
   background: #A9BCF5;
@@ -1403,6 +1405,7 @@ body span {
 .table-content__rows {
   display: flex;
   justify-content: space-between;
+  height: 50px;
 }
 .table-content__rows_head {
   padding: 10px 0;
@@ -1422,6 +1425,7 @@ body span {
   margin: 0 auto;
 }
 
+/*-------------------------------------------------------------------------------------------*/
 .check-entrance {
   display: flex;
   justify-content: center;
@@ -1484,6 +1488,15 @@ body span {
 }
 .form__text {
   font-size: 18px;
+}
+
+.save-form {
+  display: flex;
+  justify-content: center;
+}
+
+.table-systems {
+  width: 75%;
 }
 
 * {
@@ -1598,7 +1611,7 @@ h6 {
   border-color: #fff transparent transparent transparent;
 }
 
-.select-selected.select-arrow-active:after {
+.select-selected .select-arrow-active:after {
   border-color: transparent transparent #fff transparent;
   top: 15px;
 }
@@ -1626,6 +1639,76 @@ h6 {
 }
 
 .select-hide {
+  display: none;
+}
+
+/*------------------------------------------------------------------------------------------------*/
+.custom-selectmask {
+  position: relative;
+  font-size: 18px;
+  margin: 0 0 20px 0;
+}
+.custom-selectmask select {
+  display: none;
+}
+
+@keyframes example {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: #00599b;
+  }
+}
+.select-selectedmask {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.select-selectedmask_active {
+  animation-name: example;
+  animation-duration: 1s;
+}
+.select-selectedmask:after {
+  position: absolute;
+  content: "";
+  top: 20px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #00599b transparent transparent transparent;
+}
+
+.select-selectedmask .select-arrow-activemask:after {
+  border-color: transparent transparent #00599b transparent;
+  top: 15px;
+}
+
+.select-itemsmask div, .select-selectedmask {
+  color: #00599b;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: #00599b;
+  cursor: pointer;
+}
+
+.select-itemsmask {
+  position: absolute;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.select-itemsmask div:hover, .select-itemsmask .same-as-selectedmask {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.select-hidemask {
   display: none;
 }
 

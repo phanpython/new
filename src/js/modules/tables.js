@@ -178,7 +178,7 @@ delButton.addEventListener('click', () => {
 let saveButton = document.querySelector('.save-dates');
 let submitSaveDates = document.querySelector('.submit-save-dates');
 
-saveButton.addEventListener('click', () => {
+if (saveButton) {saveButton.addEventListener('click', () => {
     let timesFrom = document.querySelectorAll('.time-from');
     let timesTo = document.querySelectorAll('.time-to');
     let dates = document.querySelectorAll('.date');
@@ -186,7 +186,8 @@ saveButton.addEventListener('click', () => {
     if(checkTimes(timesFrom, timesTo) ) {
         submitSaveDates.click();
     }
-});
+})
+};
 
 function checkDate(dates) {
     let fl = true;
@@ -279,10 +280,9 @@ function setMaskTime() {
 /*----------------------------------------------------------------------*/
 
 let saveButtonProtection = document.querySelector('.save-protection');
-console.log('123');
 let submitSaveProtection = document.querySelector('.submit-save-protections');
 
-
+/* Кнопка сохранить */
 if(saveButtonProtection){
     saveButtonProtection.addEventListener('click', () => {
         let protections = document.querySelectorAll('.protection');
@@ -295,16 +295,43 @@ if(saveButtonProtection){
         }
     });
 }
+
+/* проверка на заполненность input */
 function checkEmptyProtection(protections){
     let flag = false;
 
     protections.forEach((e,i) => {
-        if(!(timesFrom[i].value)){
-            console.log('Пусто');
+        if(!(protections[i].value)){
+            protections[i].classList.add('error-animation');
         }
         else(
-            console.log(timesFrom[i].value)
+            console.log(protections[i].value)
         )
+        setTimeout(() => {
+            if(document.querySelector('.error-animation')) {
+                let errorAnimation = document.querySelectorAll('.error-animation');
+
+                errorAnimation.forEach(e => {
+                    e.classList.remove('error-animation');
+                });
+            }
+        }, 1000);
     });    
 }
+
+const radio1 = document.querySelector('.entrance');
+const radio2 = document.querySelector('.exit');
+const myFunction1 = () => {
+    let entrances = document.querySelectorAll('.entrance-on');
+    entrances.forEach((e) => {
+        e.removeAttribute("hidden"); 
+    });
+
+
+}
+const myFunction2 = () => {
+ console.log('radio2');
+}
+radio1.addEventListener('change', myFunction1);
+radio2.addEventListener('change', myFunction2);
 

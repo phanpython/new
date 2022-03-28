@@ -34,17 +34,40 @@
 				<div class="content__body _container">
 					<div class="form">
 						<div class="form__text">ЦСПА</div>
-						<form method="post" class="content__table table-content table-dates">
+<!-----------------------------------------------------------ЦСПА---------------------------------------------------------------->
+						<form method="post" class="content__table table-content table-systems">
 							<div class="table-content__rows table-content__row_head">
+								<div class="table-content__col table-content__head" name="ty">ТУ</div>
 								<div class="table-content__col table-content__head" name="protection">Защита</div>
 								<div class="table-content__col table-content__head" name="entrance">Вход</div>
 								<div class="table-content__col table-content__head" name="exit">Выход</div>
-								<div class="table-content__col table-content__head" name="vtor">Втор</div>
+								<div class="table-content__col table-content__head entrance-on" name="location" hidden>Локация</div>
+								<div class="table-content__col table-content__head entrance-on" name="vtor" hidden>Втор</div>
 							</div>
 							<div class="table-content__rows">
 								<div class="table-content__col table-col col-first">
-									<input type="text" name="protection-1" class="table-col__input protection" value="Ячейка 1" required="required">
+									<input type="text" name="ty-1" class="table-col__input protection input-ty" value="ТУ" required="required" hidden>
+									<div class="custom-selectmask">
+										<select class="select-ty">
+										  <option value="0">Выберите ТУ</option>
+										  <option value="1">ТУ1</option>
+										  <option value="2">ТУ2</option>
+										  <option value="3">ТУ3</option>
+										</select>
+									</div>
 								</div>
+								<div class="table-content__col table-col">
+									<input type="text" name="protection-1" class="table-col__input protection" value="Защита" required="required" hidden>
+									<div class="custom-selectmask">
+										<select class="select-protection">
+										  <option value="0">Выберите защиту</option>
+										  <option value="1">Защита 1</option>
+										  <option value="2">Защита 2</option>
+										  <option value="3">Защита 3</option>
+										</select>
+									</div>
+								</div>
+
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
 										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
@@ -57,12 +80,16 @@
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
-								<div class="table-content__col table-col">
+								<div class="table-content__col table-col col-first entrance-on" hidden>
+									<input type="text" name="location-1" class="table-col__input protection" value="ТУ" required="required">
+								</div>
+								<div class="table-content__col table-col entrance-on" hidden>
 									<label class="check-entrance">
 										<input type="checkbox" class="check-entrance__input vtor" name="vtor-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
+		
 							</div>
 							<input type="submit" class="submit-save-protections" hidden>
 						</form>
@@ -70,101 +97,161 @@
 							<div class="input button button-content button-add-row">
 								Добавить
 							</div>
-							<div class="input button button-content save-protection">
-								Сохранить
-							</div>
-						</div>
-					</div>
-					<div class="form">
-						<div class="form__text">СОУ</div>
-						<form method="post" class="content__table table-content table-dates">
-							<div class="table-content__rows table-content__row_head">
-								<div class="table-content__col table-content__head" name="protection">Защита</div>
-								<div class="table-content__col table-content__head" name="entrance">Вход</div>
-								<div class="table-content__col table-content__head" name="exit">Выход</div>
-								<div class="table-content__col table-content__head" name="vtor">Втор</div>
-							</div>
-							<div class="table-content__rows">
-								<div class="table-content__col table-col col-first">
-									<input type="text" name="protection-1" class="table-col__input protection" value="Ячейка 1" required="required">
-								</div>
-								<div class="table-content__col table-col">
-									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
-										<span class="check-entrance__span"></span>
-									</label>
-								</div>
-								<div class="table-content__col table-col">
-									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input exit" name="entrance_exit-1" value="exit-1">
-										<span class="check-entrance__span"></span>
-									</label>
-								</div>
-								<div class="table-content__col table-col">
-									<label class="check-entrance">
-										<input type="checkbox" class="check-entrance__input vtor" name="vtor-1">
-										<span class="check-entrance__span"></span>
-									</label>
-								</div>
-							</div>
-							<input type="submit" class="" hidden>
-						</form>
-						<div class="content__func func-content sticky">
-							<div class="input button button-content button-add-row">
-								Добавить
-							</div>
-							<div class="input button button-content">
-								Сохранить
-							</div>
-						</div>
-					</div>
-					<div class="form">
-						<div class="form__text">МПСА</div>
-						<form method="post" class="content__table table-content table-dates">
-							<div class="table-content__rows table-content__row_head">
-								<div class="table-content__col table-content__head" name="protection">Защита</div>
-								<div class="table-content__col table-content__head" name="entrance">Вход</div>
-								<div class="table-content__col table-content__head" name="exit">Выход</div>
-								<div class="table-content__col table-content__head" name="vtor">Втор</div>
-							</div>
-							<div class="table-content__rows">
-								<div class="table-content__col table-col col-first">
-									<input type="text" name="protection-1" class="table-col__input protection" value="Ячейка 1" required="required">
-								</div>
-								<div class="table-content__col table-col">
-									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
-										<span class="check-entrance__span"></span>
-									</label>
-								</div>
-								<div class="table-content__col table-col">
-									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input exit" name="entrance_exit-1" value="exit-1">
-										<span class="check-entrance__span"></span>
-									</label>
-								</div>
-								<div class="table-content__col table-col">
-									<label class="check-entrance">
-										<input type="checkbox" class="check-entrance__input vtor" name="vtor-1">
-										<span class="check-entrance__span"></span>
-									</label>
-								</div>
-							</div>
-							<input type="submit" class="" hidden>
-						</form>
-						<div class="content__func func-content sticky">
-							<div class="input button button-content button-add-row">
-								Добавить
-							</div>
-							<div class="input button button-content">
-								Сохранить
-							</div>
 							<form action="" method="post">
-								<input type="submit" class="input button button-content button-del-row" value="Удаление">
+								<input type="submit" class="input button button-content button-del-row" value="Удалить">
 								<input type="text" class="row-id-process" hidden name="id" id="">
 							</form>
 						</div>
 					</div>
+<!-----------------------------------------------------------СОУ---------------------------------------------------------------->
+					<div class="form">
+						<div class="form__text">СОУ</div>
+						<form method="post" class="content__table table-content table-systems">
+							<div class="table-content__rows table-content__row_head">
+								<div class="table-content__col table-content__head" name="ty">ТУ</div>
+								<div class="table-content__col table-content__head" name="protection">Защита</div>
+								<div class="table-content__col table-content__head" name="entrance">Вход</div>
+								<div class="table-content__col table-content__head" name="exit">Выход</div>
+								<div class="table-content__col table-content__head entrance-on" name="location" hidden>Локация</div>
+								<div class="table-content__col table-content__head entrance-on" name="vtor" hidden>Втор</div>
+							</div>
+							<div class="table-content__rows">
+								<div class="table-content__col table-col col-first">
+									<input type="text" name="ty-1" class="table-col__input protection input-ty" value="ТУ" required="required" hidden>
+									<div class="custom-selectmask">
+										<select class="select-ty">
+										  <option value="0">Выберите ТУ</option>
+										  <option value="1">ТУ1</option>
+										  <option value="2">ТУ2</option>
+										  <option value="3">ТУ3</option>
+										</select>
+									</div>
+								</div>
+								<div class="table-content__col table-col">
+									<input type="text" name="protection-1" class="table-col__input protection" value="Защита" required="required" hidden>
+									<div class="custom-selectmask">
+										<select class="select-protection">
+										  <option value="0">Выберите защиту</option>
+										  <option value="1">Защита 1</option>
+										  <option value="2">Защита 2</option>
+										  <option value="3">Защита 3</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input exit" name="entrance_exit-1" value="exit-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col col-first entrance-on" hidden>
+									<input type="text" name="location-1" class="table-col__input protection" value="ТУ" required="required">
+								</div>
+								<div class="table-content__col table-col entrance-on" hidden>
+									<label class="check-entrance">
+										<input type="checkbox" class="check-entrance__input vtor" name="vtor-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+		
+							</div>
+							<input type="submit" class="submit-save-protections" hidden>
+						</form>
+						<div class="content__func func-content sticky">
+							<div class="input button button-content button-add-row">
+								Добавить
+							</div>
+							<form action="" method="post">
+								<input type="submit" class="input button button-content button-del-row" value="Удалить">
+								<input type="text" class="row-id-process" hidden name="id" id="">
+							</form>
+						</div>
+					</div>
+<!-----------------------------------------------------------МПСА---------------------------------------------------------------->
+					<div class="form">
+						<div class="form__text">МПСА</div>
+						<form method="post" class="content__table table-content table-systems" hidden>
+							<div class="table-content__rows table-content__row_head">
+								<div class="table-content__col table-content__head" name="ty">НПС</div>
+								<div class="table-content__col table-content__head" name="protection">Защита</div>
+								<div class="table-content__col table-content__head" name="entrance">Вход</div>
+								<div class="table-content__col table-content__head" name="exit">Выход</div>
+								<div class="table-content__col table-content__head entrance-on" name="location" hidden>Локация</div>
+								<div class="table-content__col table-content__head entrance-on" name="vtor" hidden>Втор</div>
+							</div>
+							<div class="table-content__rows">
+								<div class="table-content__col table-col col-first">
+									<input type="text" name="ty-1" class="table-col__input protection input-ty" value="ТУ" required="required" hidden>
+									<div class="custom-selectmask">
+										<select class="select-ty">
+										  <option value="0">Выберите НПС</option>
+										  <option value="1">Синдор</option>
+										  <option value="2">Микунь</option>
+										  <option value="3">Сыня</option>
+										</select>
+									</div>
+								</div>
+								<div class="table-content__col table-col">
+									<input type="text" name="protection-1" class="table-col__input protection" value="Защита" required="required" hidden>
+									<div class="custom-selectmask">
+										<select class="select-protection">
+										  <option value="0">Выберите защиту</option>
+										  <option value="1">Защита 1</option>
+										  <option value="2">Защита 2</option>
+										  <option value="3">Защита 3</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col">
+									<label class="check-entrance">
+										<input type="radio" class="check-entrance__input exit" name="entrance_exit-1" value="exit-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+								<div class="table-content__col table-col col-first entrance-on" hidden>
+									<input type="text" name="location-1" class="table-col__input protection" value="ТУ" required="required">
+								</div>
+								<div class="table-content__col table-col entrance-on" hidden>
+									<label class="check-entrance">
+										<input type="checkbox" class="check-entrance__input vtor" name="vtor-1">
+										<span class="check-entrance__span"></span>
+									</label>
+								</div>
+		
+							</div>
+							<input type="submit" class="submit-save-protections" hidden>
+						</form>
+						<div class="content__func func-content sticky">
+							<div class="input button button-content button-add-row">
+								Добавить
+							</div>
+							<form action="" method="post">
+								<input type="submit" class="input button button-content button-del-row" value="Удалить">
+								<input type="text" class="row-id-process" hidden name="id" id="">
+							</form>
+						</div>
+					</div>
+	
+					<div class="save-form">
+						<div class="input button button-content save-form__button">
+							Сохранить
+						</div>
+					</div>
+
 				</div>
 			</main>
 			<footer class="footer">

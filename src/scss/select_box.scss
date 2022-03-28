@@ -36,7 +36,7 @@
 	}
 }
   
-.select-selected.select-arrow-active:after {
+.select-selected .select-arrow-active:after {
     border-color: transparent transparent #fff transparent;
     top: 15px;
 }
@@ -65,5 +65,78 @@
 }
 
 .select-hide {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+
+
+.custom-selectmask {
+	position: relative;
+    font-size: 18px;
+    margin: 0 0 20px 0;
+
+	select {
+		display: none; 
+	}
+}
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: $mainColor;}
+}
+  
+.select-selectedmask {
+	background-color: #fff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    &_active {
+        animation-name: example;
+        animation-duration: 1s;
+    }
+
+	&:after {
+		position: absolute;
+		content: "";
+		top: 20px;
+		right: 10px;
+		width: 0;
+		height: 0;
+		border: 6px solid transparent;
+		border-color: $mainColor transparent transparent transparent;
+	}
+}
+  
+.select-selectedmask .select-arrow-activemask:after {
+    border-color: transparent transparent $mainColor transparent;
+    top: 15px;
+}
+
+.select-itemsmask div,.select-selectedmask { 
+    color: $mainColor;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: $mainColor;
+    cursor: pointer;
+}
+
+.select-itemsmask {
+    position: absolute;
+    background-color: #fff;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-radius: 5px;
+    font-size: 16px;
+
+    div:hover, .same-as-selectedmask  {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+.select-hidemask {
     display: none;
 }
