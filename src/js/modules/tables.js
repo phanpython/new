@@ -1,5 +1,5 @@
 import IMask from 'imask';
-   
+
 //Фиксирование данных строки таблицы
 if(document.querySelector('.table-permission__row')) {
     let rowsTable = document.querySelectorAll('.table-permission__row');
@@ -26,123 +26,74 @@ if(document.querySelector('.table-permission__row')) {
     });
 }
 
-
 //Вставка новой строки в таблицу
 if(document.querySelector('.button-add-row')) {
     let buttonAdd = document.querySelector('.button-add-row');
     let table = document.querySelector('.table-content');
-    let countCols = document.querySelector('.table-content__row_head').children.length;
-    let heads = document.querySelectorAll('.table-content__head');
-    let names = getAttributeName(heads);
-    let timePattern = '^([0-1][0-9]|2[0-4]):[0-5][0-9]$';
-    let datePattern = '^(?:(?:31(\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$';
-
+    let namesCols = getNamesCols();
+    
     buttonAdd.addEventListener('click', () => {
-        let countRows = document.querySelectorAll('.table-content__row').length;
-
-        addRow(countRows);   
+        addRow();   
     })
 
-    function getAttributeName(tags) {
+    //Функция добавления строки
+    function addRow() {
+        let tableRow = document.querySelector('.table-row');
+        let addRow = tableRow.cloneNode(true);
+
+        processRow(addRow);
+        fixRow();
+        setMasks();
+    }
+
+    function getNamesCols() {
+        let inputs = getInputs();
+        let result = [];
+        
+        for (let input of inputs) {
+            result.push(input.name.slice(0, -1));
+        }
+
+        return result;
+    }
+    /*----------- тут поменял на класс внутри input, т.к. есть несколько вложенностей-----------------*/ 
+
+    function getInputs() {
+        let input = document.querySelectorAll('.input-row');
         let result = [];
 
-        tags.forEach(e => {
-            result.push(e.getAttribute('name')); 
-        });
+        for (let child of input) {
+            result.push(child);
+        }
 
         return result;
     }
 
-    function getRow() {
-        let row = document.createElement('div');
-        row.classList.add('table-content__row');
-        row.classList.add('table-row');
+//Функция обработки добавляемой строки
+function processRow(addRow) {
+    let activeRowTable = 'table-content__row_active';
 
-        return row;
-    }
+    table.appendChild(addRow);
+    
+    if(addRow.classList.contains(activeRowTable)) {
+        addRow.classList.remove(activeRowTable); 
+    } 
 
-    function getCols() {
-        let result = [];
+    setNamesRows(addRow);
+}
 
-        for(let i = 0; i < countCols; i++) {
-            let col = document.createElement('div');
-            col.classList.add('table-content__col');
-            col.classList.add('table-col');
-            result.push(col)
+function setNamesRows() {
+    let rows = document.querySelectorAll('.table-row');
+    let id = 1;
+
+    rows.forEach(e => {
+        for (let i = 0; i < e.children.length; i++) {
+            let name = namesCols[i] + id;
+            e.children[i].firstElementChild.name = name; 
         }
-
-        return result
-    }
-
-    function setMask(input, names, i) {
-        if(names[i] === 'date') {
-            input.classList.add('date-mask');
-            input.setAttribute('pattern', datePattern);
-            input.classList.add('date');
-        }
-
-        if(names[i] === 'time-from') {
-            input.classList.add('time-mask');
-            input.classList.add('time-from');
-            input.setAttribute('pattern', timePattern);
-        }
-
-        if(names[i] === 'time-to') {
-            input.classList.add('time-mask');
-            input.classList.add('time-to');
-            input.setAttribute('pattern', timePattern);
-        }
-    }
-
-    function getInputs(countRows) {
-        let result = [];
-
-        for(let i = 0; i < countCols; i++) {
-            let input = document.createElement('input');
-            let name = names[i] + '-' + countRows;
-            input.classList.add('table-col__input');
-            input.setAttribute('name', name);
-            input.setAttribute('required', 'required');
-
-            setMask(input, names, i);
-
-            result.push(input);
-        }
-
-        return result
-    }
-
-    function addColsIntoRow(row, cols) {
-        for(let i = 0; i < cols.length; i++) {
-            row.appendChild(cols[i]);
-        }
-    }
-
-    function addInputsIntoCols(cols, inputs) {
-        for(let i = 0; i < cols.length; i++) {
-            cols[i].appendChild(inputs[i]);
-        }
-    }
-
-    function addRow(countRows) {
-        let row = getRow();
-        let cols = getCols();
-        let inputs = getInputs(countRows);
-       
-        addColsIntoRow(row, cols);
-        addInputsIntoCols(cols, inputs);
-
-        table.appendChild(row);
-        fixRow();
-
-        if(document.querySelector('.date-mask')) {
-            setMaskDate();
-        }
-
-        if(document.querySelector('.time-mask')) {
-            setMaskTime();
-        }
-    }
+        id++;
+    });
+}
 
 //Фиксирование строки 
 let delRow;
@@ -169,10 +120,25 @@ function fixRow() {
 let delButton = document.querySelector('.button-del-row');
 
 delButton.addEventListener('click', () => {
-    if(delRow) {
+    let countRows = document.querySelectorAll('.table-row').length;
+
+    if(countRows === 1 && delRow) {
+        cleanRow();
+        setMasks();
+    } else if(delRow) {
         delRow.remove();
+    } else {
+        return;
     }
+
+    setNamesRows();
 });
+
+function cleanRow() {
+    for (let children of delRow.children) {
+        children.firstElementChild.value = '';
+    }
+}
 
 //Сохранение дат
 let saveButton = document.querySelector('.save-dates');
@@ -181,31 +147,17 @@ let submitSaveDates = document.querySelector('.submit-save-dates');
 if (saveButton) {saveButton.addEventListener('click', () => {
     let timesFrom = document.querySelectorAll('.time-from');
     let timesTo = document.querySelectorAll('.time-to');
-    let dates = document.querySelectorAll('.date');
-    //  !checkDate(dates)
+
     if(checkTimes(timesFrom, timesTo) ) {
         submitSaveDates.click();
     }
 })
 };
 
-function checkDate(dates) {
-    let fl = true;
-    let reg = '^([0-1][0-9]|2[0-4]):[0-5][0-9]$';
-    console.log(dates.length)
-    dates.forEach(e => {
-        if(e.value.search(reg)) {
-            fl = false;
-        }
-    });
-
-    return fl;
-}
-
 //Проверка времени начала и окончания работ (нужно, чтобы время окончания было больше, чем время начала)
 function checkTimes(timesFrom, timesTo) {
     let reg = '^([0-1][0-9]|2[0-4]):[0-5][0-9]$';
-    let fl = false;
+    let fl = true;
 
     timesFrom.forEach((e,i) => {
         if(timesFrom[i].value.search(reg) + 1 && timesTo[i].value.search(reg) + 1) {
@@ -217,15 +169,16 @@ function checkTimes(timesFrom, timesTo) {
             objDateTo.setHours(timesTo[i].value.slice(0,2));
             objDateTo.setMinutes(timesTo[i].value.slice(3,5));
     
-            if(objDateFrom < objDateTo) {
-                fl = true;
-            } else {
+            if(objDateFrom >= objDateTo) {
+                fl = false;
                 timesFrom[i].classList.add('error-animation');
                 timesTo[i].classList.add('error-animation');
             }
-        } else {
+        } 
+        else {
             timesFrom[i].classList.add('error-animation');
             timesTo[i].classList.add('error-animation');
+            fl = false;
         }
 
         setTimeout(() => {
@@ -242,11 +195,24 @@ function checkTimes(timesFrom, timesTo) {
     return fl;
 }
 
-//Маска даты
+//Функция установки масок
+function setMasks() {
+    if(document.querySelector('.date-mask')) {
+        setMaskDate();
+    }
+
+    if(document.querySelector('.time-mask')) {
+        setMaskTime();
+    }
+}
+}
+
+//Вызов функции установки маски даты
 if(document.querySelector('.date-mask')) {
     setMaskDate();
 }
 
+//Функция установки маски даты
 function setMaskDate() {
     let dates = document.querySelectorAll('.date-mask');
     let dateOptions = {
@@ -259,11 +225,13 @@ function setMaskDate() {
     });
 }
 
-//Маска даты
+
+//Вызов функции установки маски времени
 if(document.querySelector('.time-mask')) {
     setMaskTime();
 }
 
+//Функция установки маски времени
 function setMaskTime() {
     let dates = document.querySelectorAll('.time-mask');
     let dateOptions = {
@@ -274,7 +242,6 @@ function setMaskTime() {
     dates.forEach(e => {
         new IMask(e, dateOptions);
     });
-}
 }
 
 /*----------------------------------------------------------------------*/

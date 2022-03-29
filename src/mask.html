@@ -24,9 +24,9 @@
 								<div class="table-content__col table-content__head entrance-on" name="location" hidden>Локация</div>
 								<div class="table-content__col table-content__head entrance-on" name="vtor" hidden>Втор</div>
 							</div>
-							<div class="table-content__rows">
+							<div class="table-content__rows table-row">
 								<div class="table-content__col table-col col-first">
-									<input type="text" name="ty-1" class="table-col__input protection input-ty" value="ТУ" required="required" hidden>
+									<input type="text" name="ty-1" class="table-col__input protection input-ty input-row" value="ТУ" required="required" hidden>
 									<div class="custom-selectmask">
 										<select class="select-ty">
 										  <option value="0">Выберите ТУ</option>
@@ -37,7 +37,7 @@
 									</div>
 								</div>
 								<div class="table-content__col table-col">
-									<input type="text" name="protection-1" class="table-col__input protection" value="Защита" required="required" hidden>
+									<input type="text" name="protection-1" class="table-col__input protection input-row" value="Защита" required="required" hidden>
 									<div class="custom-selectmask">
 										<select class="select-protection">
 										  <option value="0">Выберите защиту</option>
@@ -50,18 +50,18 @@
 
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input entrance" name="entrance_exit-1" value="extrance-1">
+										<input type="radio" class="check-entrance__input entrance input-row" name="entrance_exit-1" value="extrance-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 								<div class="table-content__col table-col">
 									<label class="check-entrance">
-										<input type="radio" class="check-entrance__input exit" name="entrance_exit-1" value="exit-1">
+										<input type="radio" class="check-entrance__input exit input-row" name="entrance_exit-1 " value="exit-1">
 										<span class="check-entrance__span"></span>
 									</label>
 								</div>
 								<div class="table-content__col table-col col-first entrance-on" hidden>
-									<input type="text" name="location-1" class="table-col__input protection" value="ТУ" required="required">
+									<input type="text" name="location-1" class="table-col__input protection input-row" value="ТУ" required="required">
 								</div>
 								<div class="table-content__col table-col entrance-on" hidden>
 									<label class="check-entrance">
@@ -83,6 +83,17 @@
 							</form>
 						</div>
 					</div>
+
+
+
+
+
+
+
+
+
+
+
 <!-----------------------------------------------------------СОУ---------------------------------------------------------------->
 					<div class="form">
 						<div class="form__text">СОУ</div>
