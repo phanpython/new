@@ -89,6 +89,7 @@ function setNamesRows() {
     rows.forEach(e => {
         for (let i = 0; i < e.children.length; i++) {
             let name = namesCols[i] + id;
+            console.log(name);
             e.children[i].firstElementChild.name = name; 
         }
         id++;
@@ -301,4 +302,3 @@ const myFunction2 = () => {
 }
 radio1.addEventListener('change', myFunction1);
 radio2.addEventListener('change', myFunction2);
-

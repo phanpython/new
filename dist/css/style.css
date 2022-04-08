@@ -1399,9 +1399,6 @@ body span {
   color: #fff;
   align-items: center;
 }
-.table-content__row_active input {
-  background: #A9BCF5;
-}
 .table-content__rows {
   display: flex;
   justify-content: space-between;
