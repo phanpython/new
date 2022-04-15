@@ -120,20 +120,23 @@ function fixRow() {
 //Удаление строки
 let delButton = document.querySelector('.button-del-row');
 
-delButton.addEventListener('click', () => {
-    let countRows = document.querySelectorAll('.table-row').length;
+if (delButton) {
+    delButton.addEventListener('click', () => {
+        let countRows = document.querySelectorAll('.table-row').length;
+    
+        if(countRows === 1 && delRow) {
+            cleanRow();
+            setMasks();
+        } else if(delRow) {
+            delRow.remove();
+        } else {
+            return;
+        }
+    
+        setNamesRows();
+    });
+}
 
-    if(countRows === 1 && delRow) {
-        cleanRow();
-        setMasks();
-    } else if(delRow) {
-        delRow.remove();
-    } else {
-        return;
-    }
-
-    setNamesRows();
-});
 
 function cleanRow() {
     for (let children of delRow.children) {
@@ -287,18 +290,45 @@ function checkEmptyProtection(protections){
     });    
 }
 
-const radio1 = document.querySelector('.entrance');
-const radio2 = document.querySelector('.exit');
-const myFunction1 = () => {
-    let entrances = document.querySelectorAll('.entrance-on');
-    entrances.forEach((e) => {
-        e.removeAttribute("hidden"); 
-    });
 
 
+// Нажатие на radio button
+
+let countRows = document.querySelectorAll('.table-row').length;
+const radioEntrance = document.querySelectorAll('.entrance');
+const radioExit = document.querySelectorAll('.exit');
+
+const changeToEntrance = () => {
+    let parent = radioEntrance.closest('.table-row');
+    let entrances = parent.querySelectorAll('.entrance-on');
+    let locations = entrances[0].querySelector('.input-row');
+    console.log(locations);
+    locations.value = 'Введите локацию'
+    locations.readOnly = false;
+    let vtor = entrances[1].querySelector('.vtor');
+    vtor.disabled = false;
 }
-const myFunction2 = () => {
- console.log('radio2');
+
+const changeToExit = () => {
+    let parent = radioEntrance.closest('.table-row');
+    let entrances = parent.querySelectorAll('.entrance-on');
+    let locations = entrances[0].querySelector('.input-row');
+    console.log(locations);
+    locations.value = '-';
+    locations.readOnly = true;
+    let vtor = entrances[1].querySelector('.vtor');
+    vtor.disabled = true;
+    vtor.checked = false;
+
 }
-radio1.addEventListener('change', myFunction1);
-radio2.addEventListener('change', myFunction2);
+
+
+for (let i = 0; i < countRows; i++) {
+    radioEntrance[i].addEventListener('change', changeToEntrance(i));
+    radioExit[i].addEventListener('change', changeToExit(i));
+}
+
+
+
+
+

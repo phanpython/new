@@ -163,6 +163,15 @@ body {
 		display: flex;
 		justify-content: space-between;
 	}
+
+	&__search-box{
+		padding-top: 40px;
+	}
+	
+	&__search{
+		display: flex;
+		justify-content: center;
+	}
 }
 
 .sticky {
@@ -514,6 +523,7 @@ body {
         }
 
     }
+
 	&__rows {
         display: flex;
         justify-content: space-between;
@@ -531,6 +541,7 @@ body {
                 background: #A9BCF5;
             }
         }
+
     }
 }
 
@@ -602,14 +613,6 @@ body {
 	}
 }
 
-.col-first{
-	&:hover {
-		input {
-			background: #A9BCF5;
-			transition: background-color 1s ease;
-		}
-	}
-}
 
 .form{
 	display: flex;
@@ -632,6 +635,8 @@ body {
     width: 75%;
 }
 
+
+
 @import "base/null";
 @import "select_box";
 @import "permission";
@@ -640,3 +645,4 @@ body {
 @import "dates_add";
 @import "header";
 @import "footer";
+@import "mask_add";
